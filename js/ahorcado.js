@@ -1,6 +1,5 @@
 var words=["ALURA", "AHORCADO", "ORACLE","XD"];
 var board= document.getElementById("draw").getContext("2D");
-console.log(board);
 var lettersUsed = [];
 var gameWord= "";
 var lives=9;
@@ -33,6 +32,6 @@ function drawLines(){
      
 }
 
-drawLines(chooseWord);
+drawLines(chooseWord());
 
 
