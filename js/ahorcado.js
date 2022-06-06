@@ -1,5 +1,5 @@
 var words=["ALURA", "AHORCADO", "ORACLE","XD"];
-var board= document.getElementById("draw").getContext("2D");
+var board= document.getElementById("draw").getContext("2d");
 var lettersUsed = [];
 var gameWord= "";
 var lives=9;
