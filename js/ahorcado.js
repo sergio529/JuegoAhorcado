@@ -32,6 +32,6 @@ function drawLines(){
      
 }
 
-drawLines(chooseWord());
+drawLines(chooseWord())
 
 
