@@ -2,7 +2,9 @@ var words=["ALURA", "AHORCADO", "ORACLE","XD"];
 var board= document.getElementById("draw").getContext("2d");
 var lettersUsed = [];
 var correctLetters="";
-var lives=9;
+var lives=5;
+var point=0
+var drawCoordenate=400;
 
 function chooseWord(){
  var  wordChoosen= words[Math.floor(Math.random()*words.length)];
@@ -22,14 +24,15 @@ function drawLines(){
     
     var spaceInLines=475/gameWord.length;
     for (let i=0 ; i<gameWord.length;i++){
-        board.moveTo(375+(spaceInLines*i),340)
-        board.lineTo(425+(spaceInLines*i),340)
+        board.moveTo(drawCoordenate+(spaceInLines*i),640)
+        board.lineTo(drawCoordenate+50+(spaceInLines*i),640)
     }
     board.stroke();
     board.closePath();  
 }
 
 drawLines(chooseWord()); 
+
 function writeCorrectLetter(index){
     board.font="bold 52px inter";
     board.linewidth=6;
@@ -37,7 +40,8 @@ function writeCorrectLetter(index){
     board.lineJoin="round";
     board.fillStyle= "#0A3871";
     var spaceInLines=475/gameWord.length;
-    board.fillText(gameWord[index],380+(spaceInLines*index), 320)
+    board.fillText(gameWord[index],drawCoordenate+5+(spaceInLines*index), 620)
+    point+=1;
 }
 
 function writeWrongLetter(letter,lives){
@@ -45,8 +49,8 @@ function writeWrongLetter(letter,lives){
     board.linewidth=6;
     board.lineCap="round";
     board.lineJoin="round";
-    board.fillStyle= "#0A3871";
-    board.fillText(letter, 300+(40*(10-lives)), 400 , 40 )
+    board.fillStyle= "gray";
+    board.fillText(letter, drawCoordenate-275+(60*(10-lives)), 700 , 40 )
     console.log(lives);
 
 }
@@ -73,32 +77,42 @@ function addWrongLetter(a){
     lives-=1;
 }}
 
+
+
 document.onkeydown=(e)=>{
     let letter=e.key.toUpperCase();
     if(!checkClickedKey(e.key)){
 
-        if(lives<0){
-            alert("Intenta un nuevo juego")
-            changePage("index.html")
-        }else{
-            if(gameWord.includes(letter)){
-                console.log(letter);
-                addCorrectLetter(gameWord.indexOf(letter));
-                for(let i=0; i<gameWord.length;i++){
-                    if(gameWord[i]==letter){
-                        writeCorrectLetter(i);
+        
+        if(gameWord.includes(letter)){
+            console.log(letter);
+            addCorrectLetter(gameWord.indexOf(letter));
+            for(let i=0; i<gameWord.length;i++){
+                if(gameWord[i]==letter){
+                    writeCorrectLetter(i);
 
-                    }
                 }
             }
-            else{
-                
-                addWrongLetter(letter)
-                writeWrongLetter(letter,lives);
-                
-            }
         }
+        else{
             
+            addWrongLetter(letter)
+            writeWrongLetter(letter,lives);
+            
+        }
+        
+        if(lives==0){
+            alert("Intenta un nuevo juego")
+            changePage("index.html")
+        }
+
+        if(point==gameWord.length){
+            alert("Ha ganado"),
+            changePage("index.html");
+        }
+        
+        
+
     }
 
 };
