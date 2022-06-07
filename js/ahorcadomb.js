@@ -1,5 +1,5 @@
 var words=["ALURA", "AHORCADO", "ORACLE","XD"];
-var board= document.getElementById("draw").getContext("2d");
+var board= document.getElementById("draw-mobile").getContext("2d");
 var lettersUsed = [];
 var correctLetters="";
 var lives=7;
@@ -15,22 +15,21 @@ function chooseWord(){
 }
 
 function drawLines(){
-    
+    //board.fillStyle="#E5E5E5";
+    //board.fillRect(0,634,1000,15)
     board.linewidth=6;
     board.lineCap="round";
     board.lineJoin="round";
-    board.strokeStyle="#0A3871";
+    board.strokeStyle= "#0A3871";
     board.beginPath()
     
     var spaceInLines=475/gameWord.length;
     for (let i=0 ; i<gameWord.length;i++){
         board.moveTo(drawCoordenate+(spaceInLines*i),640)
         board.lineTo(drawCoordenate+50+(spaceInLines*i),640)
-        
     }
     board.stroke();
     board.closePath();  
-    
 }
 
 drawLines(chooseWord()); 
