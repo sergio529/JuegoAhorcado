@@ -6,6 +6,7 @@ var lives=7;
 var point=0
 var drawCoordenate=400;
 
+
 function chooseWord(){
  var  wordChoosen= words[Math.floor(Math.random()*words.length)];
  console.log(wordChoosen);
@@ -31,6 +32,7 @@ function drawLines(){
     board.stroke();
     board.closePath();  
     
+    
 }
 
 drawLines(chooseWord()); 
@@ -44,6 +46,7 @@ function writeCorrectLetter(index){
     var spaceInLines=475/gameWord.length;
     board.fillText(gameWord[index],drawCoordenate+5+(spaceInLines*index), 620)
     point+=1;
+    
 }
 
 function writeWrongLetter(letter,lives){
@@ -71,6 +74,7 @@ function checkClickedKey(key){
 
 function addCorrectLetter(i){
     correctLetters+= gameWord[i].toUpperCase()
+    
 }
 
 function addWrongLetter(a){
@@ -82,17 +86,22 @@ function addWrongLetter(a){
 
 
 document.onkeydown=(e)=>{
+    
     let letter=e.key.toUpperCase();
     if(!checkClickedKey(e.key)&&(lives!=0)){
-
+        
+        
+        
         
         if(gameWord.includes(letter)){
-            console.log(letter);
+                       
             addCorrectLetter(gameWord.indexOf(letter));
             for(let i=0; i<gameWord.length;i++){
+                
+                
                 if(gameWord[i]==letter){
                     writeCorrectLetter(i);
-
+                        
                 }
             }
         }

@@ -124,11 +124,28 @@ footer{
       width: 75%;
   }
 
-  .draw{
+  #draw{
       display: none;
   }
-  .draw-mobile{
+  #draw-mobile{
       display: block ;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      
   }
-    
+  .buttons2{
+      width: 90%;
+  }
+
+  .button-newGame, .button-gameOver{
+      width: 90%;
+  }
+
+  .logo{
+      width: 20%;
+  }
+  .add-word{
+      font-size: 20px;
+  }
 }
