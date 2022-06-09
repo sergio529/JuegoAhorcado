@@ -150,5 +150,16 @@ footer{
   .add-word{
       font-size: 20px;
   }
-
+ .input-mobile{
+    font-size: 15px;
+    display: block;
+    outline: none;
+    background-color: #E5E5E5;
+    border: none;
+    color: #0A3871;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+  }
 }
