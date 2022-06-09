@@ -73,6 +73,7 @@ if(screen.width<=480){
 
     function addCorrectLetter(i){
         correctLetters+= gameWord[i].toUpperCase()
+        
     }
 
     function addWrongLetter(a){
@@ -85,11 +86,12 @@ if(screen.width<=480){
 
     function handleInput(e){
         let letter=e.target.value.toUpperCase();
-        if(!checkClickedKey(e.target.value)&&(lives!=0)&&(e.target.value<=1)){
+        
 
-            
+        if(!checkClickedKey(e.target.value)&&(lives!=0)&&(e.target.value.length==1)){
+            console.log(e.target.value);
             if(gameWord.includes(letter)){
-                console.log(letter);
+                
                 addCorrectLetter(gameWord.indexOf(letter));
                 for(let i=0; i<gameWord.length;i++){
                     if(gameWord[i]==letter){
