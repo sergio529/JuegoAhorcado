@@ -69,7 +69,9 @@ header{
     color: #E5E5E5;
     font-weight: 700;
 }
-
+.input-mobile{
+    display: none;
+}
 .button-gameOver{
     width: 45% ;
     height: 67px;
@@ -148,4 +150,5 @@ footer{
   .add-word{
       font-size: 20px;
   }
+
 }

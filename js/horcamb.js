@@ -1,5 +1,6 @@
 if(screen.width<=480){
     var board= document.getElementById("draw-mobile").getContext("2d");
+    var keyboard=document.getElementById("input-mobile").focus();
     var dibujos=0;
 
 
@@ -42,6 +43,8 @@ if(screen.width<=480){
     drawLine(50,300,420,420);
     drawLine(100,100,50,420);
     drawLine(100,200,50,50);
+
+
 
 
 };
