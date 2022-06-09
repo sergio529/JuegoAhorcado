@@ -1,4 +1,4 @@
-var words=["ALURA", "AHORCADO", "ORACLE","XD"];
+var words=["BOTELLA", "AHORCADO", "ORACLE","XD","MOLDE","CARGAR","PATAS","RANA","ASIENTO","BALLESTA","MESSIRVE"];
 var board= document.getElementById("draw").getContext("2d");
 var lettersUsed = [];
 var correctLetters="";

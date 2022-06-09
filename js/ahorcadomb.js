@@ -1,12 +1,13 @@
 
 if(screen.width<=480){
-    var words=["ALURA", "AHORCADO", "ORACLE","XD"];
+    var words=["BOTELLA", "AHORCADO", "ORACLE","XD","MOLDE","CARGAR","PATAS","RANA","ASIENTO","BALLESTA","MESSIRVE"];
     var board= document.getElementById("draw-mobile").getContext("2d");
     var lettersUsed = [];
     var correctLetters="";
     var lives=7;
     var point=0
     var drawCoordenate=20;
+    var input=document.getElementById("input-mobile")
 
     function chooseWord(){
     var  wordChoosen= words[Math.floor(Math.random()*words.length)];
@@ -80,11 +81,11 @@ if(screen.width<=480){
         lives-=1;
     }}
 
+    input.oninput = handleInput
 
-
-    document.onkeydown=(e)=>{
-        let letter=e.key.toUpperCase();
-        if(!checkClickedKey(e.key)&&(lives!=0)){
+    function handleInput(e){
+        let letter=e.target.value.toUpperCase();
+        if(!checkClickedKey(e.target.value)&&(lives!=0)&&(e.target.value<=1)){
 
             
             if(gameWord.includes(letter)){
